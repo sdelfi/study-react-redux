@@ -2,20 +2,12 @@ import {
     SearchRepositoriesSuccessAction, SearchRepositoriesAction, SearchRepositoriesErrorAction
 } from '../actions/RepositoriesActions';
 import {AnyAction, createReducer} from '@reduxjs/toolkit';
-import {RepositoriesState} from "../types/RepositoriesState";
+import {RepositoriesInitialState, RepositoriesState} from "../types/RepositoriesState";
 import {ActionType} from "../action-types/RepositoriesActionTypes";
 import {Action} from "../actions/RepositoriesActions";
 
-
-// interface Action extends AnyAction {
-//     type: string;
-//     payload?: any
-// }
-
-// type Action = SearchRepositoriesAction | SearchRepositoriesSuccessAction | SearchRepositoriesErrorAction;
-
 // const reducer = (state: RepositoriesState, action: Action): RepositoriesState => {
-const RepositoriesReducer = (state: RepositoriesState, action: Action): RepositoriesState => {
+const RepositoriesReducer = (state: RepositoriesState = RepositoriesInitialState, action: Action): RepositoriesState => {
     switch (action.type) {
         case ActionType.SEARCH_REPOSITORIES:
             return {loading: true, error: null, data: []}

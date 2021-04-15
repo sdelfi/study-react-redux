@@ -6,3 +6,10 @@ export interface RepositoriesState {
     error: string | null;
     data: string[];
 }
+
+
+export const RepositoriesInitialState = {
+    loading: false,
+    error: null,
+    data: []
+}
